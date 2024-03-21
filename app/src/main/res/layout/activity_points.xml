@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Points">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="407dp"
+        android:layout_height="733dp"
+        android:src="@drawable/night"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="-1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
