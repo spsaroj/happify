@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Happify</string>
+    <string name="logo_description" />
+    <string name="sign_in_with_google" />
 </resources>
