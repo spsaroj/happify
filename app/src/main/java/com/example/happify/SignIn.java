@@ -2,12 +2,17 @@ package com.example.happify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Signin extends AppCompatActivity {
+
+    private ImageView submitLogo;
+    private TextView signInWithGoogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +20,15 @@ public class Signin extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
 
         ImageView logoImageView = findViewById(R.id.logo);
-        Button googleSignInButton = findViewById(R.id.googleSignInButton);
+        submitLogo  = findViewById(R.id.submitLogo);
+        signInWithGoogle = findViewById(R.id.SignInWithGoogle);
 
-        // Set onClick listener for Google sign-in button
-        googleSignInButton.setOnClickListener(new View.OnClickListener() {
+        // Set click listener for the submitLogo ImageView
+        submitLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Call the Firebase authentication function here
-                // Replace this comment with your authentication logic
+
             }
         });
     }
