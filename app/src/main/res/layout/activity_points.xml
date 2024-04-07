@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Points">
+
+    <TextView
+        android:id="@+id/pointsTV"
+        android:layout_width="237dp"
+        android:layout_height="42dp"
+        android:fontFamily="sans-serif-thin"
+        android:shadowColor="#C0CA33"
+        android:text="Points Gallery"
+        android:textColor="#8E24AA"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="324dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/gift_img"
+        app:layout_constraintTop_toBottomOf="@+id/pointsTV"
+        tools:layout_editor_absoluteX="43dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="275dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="112dp"
+        android:text="Unlock new Music"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteX="70dp" />
+
+    <Button
+        android:id="@+id/backBTN"
+        android:layout_width="54dp"
+        android:layout_height="33dp"
+        android:layout_marginEnd="36dp"
+        android:text="<"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/pointsTV"
+        tools:layout_editor_absoluteY="38dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
