@@ -164,7 +164,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:lines="2"
-                            android:text="Guided Breathing" />
+                            android:text="Guided\nBreathe" />
                     </LinearLayout>
 
                     <LinearLayout
