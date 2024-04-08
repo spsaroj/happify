@@ -2,6 +2,7 @@ package com.example.happify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,7 @@ public class MoodTracking extends AppCompatActivity {
         moodButton4 = findViewById(R.id.moodButton4);
         journalButton = findViewById(R.id.journalButton);
         submitET = findViewById(R.id.sumbitET);
-        ImageView submitLogo = findViewById(R.id.submitLogo);
+        ImageView submitLogo = findViewById(R.id.googleIcon);
 
         // Set click listeners for mood buttons
         moodButton1.setOnClickListener(new View.OnClickListener() {
@@ -62,23 +63,16 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle journal button click
+                Intent goToJournalIntent = new Intent(getApplicationContext(), JournalList.class);
+                startActivity(goToJournalIntent);
             }
         });
+    }
+    public void onBackPressedMT(View v){
+        finish();
+    }
 
-        // Set click listener for submit button
-        submitET.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle submit button click
-            }
-        });
+    public void onSubmitMTPressed(View v){
 
-        // Set click listener for submit logo
-        submitLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle submit logo click
-            }
-        });
     }
 }

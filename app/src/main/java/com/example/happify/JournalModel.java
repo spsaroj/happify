@@ -6,21 +6,17 @@ public class JournalModel {
     private static JournalModel theModel = null;
     public ArrayList<Journal> journals = null;
     public static JournalModel getModel() {
-        if (theModel == null) theModel = new JournalModel();
+        if (theModel == null) {theModel = new JournalModel();}
         return theModel;
     }
     private JournalModel() {
         journals = new ArrayList<>();
-        loadData();
+        this.loadData();
     }
     private void loadData() {
-        Journal p = null;
-        p = new Journal("Venus");
-        journals.add(p);
-        p = new Journal("Mercury");
-        journals.add(p);
-        p = new Journal("Mars");
-        journals.add(p);
+        this.journals.add(new Journal("this is a journal"));
+        this.journals.add(new Journal("this is another journal"));
+        this.journals.add(new Journal("this is yet another journal"));
     }
     public static class Journal {
         private String journalItem;
@@ -28,7 +24,7 @@ public class JournalModel {
             this.journalItem =journalItem;
         }
         public String getJournalItem() {
-            return journalItem;
+            return this.journalItem;
         }
 
         public void setJournalItem(String journalItem) {

@@ -2,6 +2,7 @@ package com.example.happify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,17 +18,9 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        ImageView logoImageView = findViewById(R.id.logo);
-        submitLogo  = findViewById(R.id.submitLogo);
-        signInWithGoogle = findViewById(R.id.SignInWithGoogle);
-
-        // Set click listener for the submitLogo ImageView
-        submitLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call the Firebase authentication function here
-
-            }
-        });
+    }
+    public void onSigninPressed(View v){
+        Intent signinIntent = new Intent(this, Dashboard.class);
+        startActivity(signinIntent);
     }
 }

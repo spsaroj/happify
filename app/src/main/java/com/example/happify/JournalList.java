@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class JournalList extends AppCompatActivity {
 
@@ -18,5 +19,8 @@ public class JournalList extends AppCompatActivity {
         journalRV.setAdapter(journalServer);
         LinearLayoutManager myManager = new LinearLayoutManager(this);
         journalRV.setLayoutManager(myManager);
+    }
+    public void onBackPressedJL(View v){
+        finish();
     }
 }

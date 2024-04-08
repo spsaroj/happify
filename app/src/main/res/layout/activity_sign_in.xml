@@ -17,11 +17,17 @@
         android:src="@drawable/logo" />
 
     <LinearLayout
-        android:layout_width="129dp"
-        android:layout_height="20dp"
+        android:id="@+id/signinWithGoogleBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
         android:layout_gravity="center"
+        android:background="@drawable/green_button_background"
+        android:clickable="true"
         android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal">
+        android:onClick="onSigninPressed"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
 
         <TextView
             android:id="@+id/SignInWithGoogle"
@@ -29,10 +35,10 @@
             android:layout_height="26dp"
             android:layout_gravity="center|center_horizontal"
             android:layout_weight="1"
-            android:text="SignInWithGoogle" />
+            android:text="Sign In With Google  " />
 
         <ImageView
-            android:id="@+id/submitLogo"
+            android:id="@+id/googleIcon"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_gravity="center|center_horizontal"
