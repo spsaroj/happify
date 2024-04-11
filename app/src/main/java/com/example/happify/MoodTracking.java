@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MoodTracking extends AppCompatActivity {
     private ImageView moodButton1, moodButton2, moodButton3, moodButton4;
@@ -34,6 +35,7 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 1 click
+                displayMoodMessage("You are sad.");
             }
         });
 
@@ -41,6 +43,7 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 2 click
+                displayMoodMessage("You are feeling neutral.");
             }
         });
 
@@ -48,6 +51,7 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 3 click
+                displayMoodMessage("You are feeling happy.");
             }
         });
 
@@ -55,6 +59,7 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 4 click
+                displayMoodMessage("You are feeling boss-like.");
             }
         });
 
@@ -68,7 +73,14 @@ public class MoodTracking extends AppCompatActivity {
             }
         });
     }
+
+    private void displayMoodMessage(String message) {
+
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
     public void onBackPressedMT(View v){
+
         finish();
     }
 
