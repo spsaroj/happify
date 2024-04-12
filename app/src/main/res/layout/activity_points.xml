@@ -8,6 +8,7 @@
     tools:context=".Points">
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -37,18 +38,18 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="324dp"
-        android:layout_height="235dp"
-        android:layout_marginTop="144dp"
+        android:layout_width="355dp"
+        android:layout_height="263dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/gift_img"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="43dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="33dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="275dp"
         android:layout_height="59dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="116dp"
         android:onClick="onClick"
         android:text="Unlock new Music"
         app:layout_constraintEnd_toEndOf="parent"
