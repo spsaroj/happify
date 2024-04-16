@@ -40,13 +40,6 @@
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
 
-        <ImageView
-            android:id="@+id/muteSound"
-            android:layout_width="242dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:src="@drawable/mute_music"
-            />
     </LinearLayout>
 
     <ImageView
@@ -59,5 +52,16 @@
         android:id="@+id/displayCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="00:00:00"
+        android:background="#C0ECD7"
+        android:textSize="40dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/startCountBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:backgroundTint="@android:color/holo_green_dark"
+        />
 </LinearLayout>

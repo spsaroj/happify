@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JournalWrite">
+    android:layout_margin="20sp"
+    android:orientation="vertical"
+    tools:context=".JournalList">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="390dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backBtnJournalList"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:onClick="onBackPressedJL"
+            android:src="@drawable/rounded_back_arrow" />
+
+        <TextView
+            android:layout_width="345dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="-20dp"
+            android:gravity="center"
+            android:text="Journals"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5sp"
+        android:layout_marginTop="52dp"
+        android:gravity="center_horizontal"
+        android:text="How was your day?\nAnything interesting you want to log?"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="37dp" />
+
+    <EditText
+        android:id="@+id/journalwriteETJournal"
+        android:layout_width="match_parent"
+        android:layout_height="279dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5sp"
+        android:background="@drawable/textbox_with_shadow"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="Write your journal..."
+        android:inputType="text"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <LinearLayout
+        android:id="@+id/submitMT"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp"
+        android:background="@drawable/green_button_background"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="586dp">
+
+        <TextView
+            android:id="@+id/sumbitET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit  " />
+
+        <ImageView
+            android:id="@+id/googleIcon"
+            android:layout_width="25dp"
+            android:layout_height="48dp"
+            android:layout_margin="0sp"
+            android:src="@drawable/send_icon" />
+
+    </LinearLayout>
+
+</LinearLayout>
