@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Happify"
+rootProject.name = "happify"
 include(":app")
  
