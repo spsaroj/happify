@@ -40,13 +40,6 @@
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
 
-        <ImageView
-            android:id="@+id/muteSound"
-            android:layout_width="242dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:src="@drawable/mute_music"
-            />
     </LinearLayout>
 
     <ImageView

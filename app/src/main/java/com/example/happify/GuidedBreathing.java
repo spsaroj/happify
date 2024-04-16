@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -15,6 +17,7 @@ public class GuidedBreathing extends AppCompatActivity {
     CountDownTimer timer;
     Button start;
 
+    Spinner dropDown;
 
 
     @Override
@@ -22,8 +25,17 @@ public class GuidedBreathing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guided_breathing);
 
+        dropDown=findViewById(R.id.dropDown);
+
+        String[] breathingSounds= getResources().getStringArray(R.array.breathing_sounds);
+        ArrayAdapter adapter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, breathingSounds);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        dropDown.setAdapter(adapter);
+
         countdownTimer=findViewById(R.id.displayCount);
         start=findViewById(R.id.startCountBtn);
+        dropDown=findViewById(R.id.dropDown);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +46,7 @@ public class GuidedBreathing extends AppCompatActivity {
     }
 
     private void startTime() {
-        timer=new CountDownTimer(10000, 10000) {
+        timer=new CountDownTimer(60000, 60000) {
 
             @Override
             public void onTick(long l) {
