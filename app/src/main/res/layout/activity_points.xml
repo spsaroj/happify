@@ -47,15 +47,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/unlockMusicBtn"
-        android:layout_width="275dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="116dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_button_background"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
         android:onClick="unlockMusic"
-        android:text="Unlock new Music"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unlock New Music "
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/new_music_coin" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

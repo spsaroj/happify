@@ -50,7 +50,7 @@ public class GuidedBreathing extends AppCompatActivity {
         meditationMusic.put("Rain Thunder", "gs://happify-260c7.appspot.com/rain_thunder.mp3");
         ArrayList<String> soundsBreathing = new ArrayList<>();
 
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < AppModel.getAppModel().appdata.getSoundsUnlocked(); i++){
             soundsBreathing.add(soundsList[i]);
         }
 

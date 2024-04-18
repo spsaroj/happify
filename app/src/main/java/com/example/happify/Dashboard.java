@@ -7,7 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -27,26 +31,69 @@ public class Dashboard extends AppCompatActivity {
     TextView quoteTV;
     String quotesString;
     ArrayList<QuoteModel> quotes;
+    TextView pointsDashboardTV;
+    int userProgress;
+    ProgressBar progress1;
+    ProgressBar progress2;
+    ProgressBar progress3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        //Points section
+        pointsDashboardTV = findViewById(R.id.pointsAmountTV);
+        pointsDashboardTV.setText(Integer.toString(AppModel.getAppModel().appdata.getPoints()));
+
+        //Quotes Section
         quoteTV = findViewById(R.id.authorMotivationDashboard);
         quoteTV.setText("Be happy with Happify\nHappify Team");
-
         quotes = new ArrayList<>();
         getData();
-//        ProgressBar progress1 = findViewById(R.id.progressBarOne);
-//        progress1.setProgress(0);
-//        Button loadProject = findViewById(R.id.button);
-//        loadProject.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), SignIn.class);
-//                startActivity(intent);
-//            }
-//        });
+
+
+
+        //ProgressBar section
+        userProgress = AppModel.getAppModel().appdata.getProgress();
+        progress1 = findViewById(R.id.progressBarOne);
+        progress2 = findViewById(R.id.progressBarTwo);
+        progress3 = findViewById(R.id.progressBarThree);
+        if(userProgress == 0 || userProgress>3){
+            progress1.setProgress(0);
+            progress2.setProgress(0);
+            progress3.setProgress(0);
+        } else if (userProgress == 1) {
+            progress1.setProgress(1);
+            progress2.setProgress(0);
+            progress3.setProgress(0);
+        } else if (userProgress == 2) {
+            progress1.setProgress(1);
+            progress2.setProgress(1);
+            progress3.setProgress(0);
+        }
+        else{
+            progress1.setProgress(1);
+            progress2.setProgress(1);
+            progress3.setProgress(1);
+        }
+        TextView progressTextDashboard = findViewById(R.id.progressTextDashboard);
+        if(userProgress == 3){
+            progressTextDashboard.setText("You completed today's task!");
+        }
+        else {
+            progressTextDashboard.setText("You are almost there!");
+        }
+
+        //
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pointsDashboardTV.setText(Integer.toString(AppModel.getAppModel().appdata.getPoints()));
     }
 
     public void guidedBreathingBtnOnClick(View v){
@@ -81,8 +128,17 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void newQuoteBtnClicked(View v){
+        if(AppModel.getAppModel().appdata.getPoints() <30){
+            Toast.makeText(getApplicationContext(), "You don't have enough coins", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            //deduct the coin in model
+            AppModel.getAppModel().appdata.setPoints(AppModel.getAppModel().appdata.getPoints() - 30);
+            pointsDashboardTV.setText(Integer.toString(AppModel.getAppModel().appdata.getPoints()));
 
+            //replace the motivation quote:
 
+        }
     }
     private void getData() {
         // RequestQueue initialized

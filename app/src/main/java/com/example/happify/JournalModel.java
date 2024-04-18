@@ -1,8 +1,11 @@
 package com.example.happify;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 
 public class JournalModel {
+    private DatabaseReference mDatabase;
     private static JournalModel theModel = null;
     public ArrayList<Journal> journals = null;
     public static JournalModel getModel() {
