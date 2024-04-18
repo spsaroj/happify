@@ -17,10 +17,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class Dashboard extends AppCompatActivity {
     TextView quoteTV;
     String quotesString;
     ArrayList<QuoteModel> quotes;
+    int quotePosition;
     TextView pointsDashboardTV;
     int userProgress;
     ProgressBar progress1;
@@ -53,8 +56,6 @@ public class Dashboard extends AppCompatActivity {
         quotes = new ArrayList<>();
         getData();
 
-
-
         //ProgressBar section
         userProgress = AppModel.getAppModel().appdata.getProgress();
         progress1 = findViewById(R.id.progressBarOne);
@@ -65,18 +66,18 @@ public class Dashboard extends AppCompatActivity {
             progress2.setProgress(0);
             progress3.setProgress(0);
         } else if (userProgress == 1) {
-            progress1.setProgress(1);
+            progress1.setProgress(100);
             progress2.setProgress(0);
             progress3.setProgress(0);
         } else if (userProgress == 2) {
-            progress1.setProgress(1);
-            progress2.setProgress(1);
+            progress1.setProgress(100);
+            progress2.setProgress(100);
             progress3.setProgress(0);
         }
         else{
-            progress1.setProgress(1);
-            progress2.setProgress(1);
-            progress3.setProgress(1);
+            progress1.setProgress(100);
+            progress2.setProgress(100);
+            progress3.setProgress(100);
         }
         TextView progressTextDashboard = findViewById(R.id.progressTextDashboard);
         if(userProgress == 3){
@@ -94,6 +95,35 @@ public class Dashboard extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         pointsDashboardTV.setText(Integer.toString(AppModel.getAppModel().appdata.getPoints()));
+        userProgress = AppModel.getAppModel().appdata.getProgress();
+        progress1 = findViewById(R.id.progressBarOne);
+        progress2 = findViewById(R.id.progressBarTwo);
+        progress3 = findViewById(R.id.progressBarThree);
+        if(userProgress == 0 || userProgress>3){
+            progress1.setProgress(0);
+            progress2.setProgress(0);
+            progress3.setProgress(0);
+        } else if (userProgress == 1) {
+            progress1.setProgress(100);
+            progress2.setProgress(0);
+            progress3.setProgress(0);
+        } else if (userProgress == 2) {
+            progress1.setProgress(100);
+            progress2.setProgress(100);
+            progress3.setProgress(0);
+        }
+        else{
+            progress1.setProgress(100);
+            progress2.setProgress(100);
+            progress3.setProgress(100);
+        }
+        TextView progressTextDashboard = findViewById(R.id.progressTextDashboard);
+        if(userProgress == 3){
+            progressTextDashboard.setText("You completed today's task!");
+        }
+        else {
+            progressTextDashboard.setText("You are almost there!");
+        }
     }
 
     public void guidedBreathingBtnOnClick(View v){
@@ -137,6 +167,8 @@ public class Dashboard extends AppCompatActivity {
             pointsDashboardTV.setText(Integer.toString(AppModel.getAppModel().appdata.getPoints()));
 
             //replace the motivation quote:
+            String toInsert = quotes.get(quotePosition).getQuoteText();
+            quoteTV.setText(toInsert);
 
         }
     }
@@ -151,7 +183,15 @@ public class Dashboard extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d("response api", response.getClass().getName());
 
-                quotesString = response;
+                Gson gson = new Gson();
+                QuoteModel [] quotesArray = gson.fromJson(response, QuoteModel[].class);
+
+                quotes = new ArrayList<>();
+                for (QuoteModel quote : quotesArray) {
+                    quotes.add(quote);
+                }
+                quotePosition = new Random().nextInt(quotesArray.length-1);
+
             }
         }, new Response.ErrorListener() {
             @Override

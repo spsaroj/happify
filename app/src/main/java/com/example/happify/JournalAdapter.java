@@ -20,13 +20,14 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     @Override
     public void onBindViewHolder(@NonNull JournalViewHolder holder, int position) {
         TextView journalTV = holder.itemView.findViewById(R.id.journalItemTV);
-        String journalItem = JournalModel.getModel().journals.get(position).getJournalItem();
+        String journalItem = AppModel.getAppModel().journals.get(position).getJournalItem();
+//        String journalItem = JournalModel.getModel().journals.get(position).getJournalItem();
         journalTV.setText(journalItem);
     }
 
     @Override
     public int getItemCount() {
-        return JournalModel.getModel().journals.size();
+        return AppModel.getAppModel().journals.size();
     }
     public static class JournalViewHolder extends RecyclerView.ViewHolder{
         public JournalViewHolder(@NonNull View v){

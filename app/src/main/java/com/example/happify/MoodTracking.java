@@ -98,6 +98,7 @@ public class MoodTracking extends AppCompatActivity {
     }
 
     public void onSubmitMTPressed(View v){
-        finish();
+        AppModel.getAppModel().appdata.setPoints(AppModel.getAppModel().appdata.getPoints() + 10);
+        AppModel.getAppModel().appdata.setProgress(AppModel.getAppModel().appdata.getProgress() + 1);
     }
 }

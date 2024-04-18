@@ -17,9 +17,7 @@ public class JournalModel {
         this.loadData();
     }
     private void loadData() {
-        this.journals.add(new Journal("this is a journal"));
-        this.journals.add(new Journal("this is another journal"));
-        this.journals.add(new Journal("this is yet another journal"));
+
     }
     public static class Journal {
         private String journalItem;

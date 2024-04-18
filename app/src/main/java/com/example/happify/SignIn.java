@@ -43,6 +43,7 @@ public class SignIn extends AppCompatActivity {
     private DatabaseReference mDatabase;
     GoogleSignInOptions gso;
     GoogleSignInClient googleSignInClient;
+    private FirebaseAuth mAuth;
     int RC_SIGN_IN = 20;
 
     @Override

@@ -121,7 +121,8 @@ public class GuidedBreathing extends AppCompatActivity {
                 mediaPlayer.release();
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer.reset();
-
+                AppModel.getAppModel().appdata.setPoints(AppModel.getAppModel().appdata.getPoints() + 10);
+                AppModel.getAppModel().appdata.setProgress(AppModel.getAppModel().appdata.getProgress() + 1);
             }
         }.start();
     }

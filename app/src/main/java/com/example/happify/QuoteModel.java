@@ -9,11 +9,11 @@ public class QuoteModel {
         this.author = author;
     }
 
-    public String getText() {
+    public String getQuoteText() {
         return text;
     }
 
-    public String getAuthor() {
+    public String getQuoteAuthor() {
         return author;
     }
 }
