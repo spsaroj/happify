@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,16 +16,27 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.ArrayList;
+
 public class Dashboard extends AppCompatActivity {
 
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
     private String quotesUrl = "https://type.fit/api/quotes";
 
+    TextView quoteTV;
+    String quotesString;
+    ArrayList<QuoteModel> quotes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        quoteTV = findViewById(R.id.authorMotivationDashboard);
+        quoteTV.setText("Be happy with Happify\nHappify Team");
+
+        quotes = new ArrayList<>();
+        getData();
 //        ProgressBar progress1 = findViewById(R.id.progressBarOne);
 //        progress1.setProgress(0);
 //        Button loadProject = findViewById(R.id.button);
@@ -70,19 +81,21 @@ public class Dashboard extends AppCompatActivity {
     }
 
     public void newQuoteBtnClicked(View v){
-        getData();
+
 
     }
     private void getData() {
         // RequestQueue initialized
         mRequestQueue = Volley.newRequestQueue(this);
 
+
         // String Request initialized
         mStringRequest = new StringRequest(Request.Method.GET, quotesUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("response api", response.toString());
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();//display the response on screen
+                Log.d("response api", response.getClass().getName());
+
+                quotesString = response;
             }
         }, new Response.ErrorListener() {
             @Override
@@ -92,5 +105,6 @@ public class Dashboard extends AppCompatActivity {
         });
 
         mRequestQueue.add(mStringRequest);
+
     }
 }
