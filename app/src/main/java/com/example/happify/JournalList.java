@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -22,5 +23,10 @@ public class JournalList extends AppCompatActivity {
     }
     public void onBackPressedJL(View v){
         finish();
+    }
+    public void onNewJournalPressedJL(View v){
+
+        Intent intent = new Intent(this, JournalWrite.class);
+        startActivity(intent);
     }
 }

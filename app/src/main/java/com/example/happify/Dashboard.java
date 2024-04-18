@@ -5,15 +5,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 public class Dashboard extends AppCompatActivity {
+
+    private RequestQueue mRequestQueue;
+    private StringRequest mStringRequest;
+    private String quotesUrl = "https://type.fit/api/quotes";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+//        ProgressBar progress1 = findViewById(R.id.progressBarOne);
+//        progress1.setProgress(0);
 //        Button loadProject = findViewById(R.id.button);
 //        loadProject.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -53,5 +67,30 @@ public class Dashboard extends AppCompatActivity {
     public void suicideHelplineClicked(View v){
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "988"));
         startActivity(intent);
+    }
+
+    public void newQuoteBtnClicked(View v){
+        getData();
+
+    }
+    private void getData() {
+        // RequestQueue initialized
+        mRequestQueue = Volley.newRequestQueue(this);
+
+        // String Request initialized
+        mStringRequest = new StringRequest(Request.Method.GET, quotesUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("response api", response.toString());
+                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();//display the response on screen
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.i("Error occurred", "Error :" + error.toString());
+            }
+        });
+
+        mRequestQueue.add(mStringRequest);
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ public class MoodTracking extends AppCompatActivity {
     private ImageView moodButton1, moodButton2, moodButton3, moodButton4;
     private Button journalButton;
     private TextView submitET;
+
 
 
     @Override
@@ -35,7 +37,11 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 1 click
-                displayMoodMessage("You are sad.");
+                String currentMood = "You are sad.";
+                TextView currentMoodET = findViewById(R.id.mtWriteAbtIt);
+                String currentMoodSt = "Do you want to write about it?";
+                String currentMoodToSet = currentMood+"\n"+currentMoodSt;
+                currentMoodET.setText(currentMoodToSet);
             }
         });
 
@@ -43,7 +49,11 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 2 click
-                displayMoodMessage("You are feeling neutral.");
+                String currentMood = "You are feeling neutral.";
+                TextView currentMoodET = findViewById(R.id.mtWriteAbtIt);
+                String currentMoodSt = "Do you want to write about it?";
+                String currentMoodToSet = currentMood+"\n"+currentMoodSt;
+                currentMoodET.setText(currentMoodToSet);
             }
         });
 
@@ -51,7 +61,11 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 3 click
-                displayMoodMessage("You are feeling happy.");
+                String currentMood = "You are feeling happy.";
+                TextView currentMoodET = findViewById(R.id.mtWriteAbtIt);
+                String currentMoodSt = "Do you want to write about it?";
+                String currentMoodToSet = currentMood+"\n"+currentMoodSt;
+                currentMoodET.setText(currentMoodToSet);
             }
         });
 
@@ -59,7 +73,11 @@ public class MoodTracking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle mood button 4 click
-                displayMoodMessage("You are feeling boss-like.");
+                String currentMood = "You are feeling Fantastic.";
+                TextView currentMoodET = findViewById(R.id.mtWriteAbtIt);
+                String currentMoodSt = "Do you want to write about it?";
+                String currentMoodToSet = currentMood+"\n"+currentMoodSt;
+                currentMoodET.setText(currentMoodToSet);
             }
         });
 
@@ -74,17 +92,12 @@ public class MoodTracking extends AppCompatActivity {
         });
     }
 
-    private void displayMoodMessage(String message) {
-
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-    }
-
     public void onBackPressedMT(View v){
 
         finish();
     }
 
     public void onSubmitMTPressed(View v){
-
+        finish();
     }
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <string name="app_name">Happify</string>
+        <string name="client_id">368531731844-ipudie754drkts6cujq3mu3rnthc8peo.apps.googleusercontent.com</string>
 </resources>

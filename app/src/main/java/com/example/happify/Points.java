@@ -3,7 +3,9 @@ package com.example.happify;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 public class Points extends AppCompatActivity {
 
@@ -15,4 +17,8 @@ public class Points extends AppCompatActivity {
     public void onBackPressedPoints(View v){
         finish();
     }
+    public void unlockMusic(View v){
+        Log.d("new music? ", "unlocked");
+    }
+
 }

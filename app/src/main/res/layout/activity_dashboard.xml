@@ -94,10 +94,13 @@
                     app:layout_constraintVertical_bias="0.854" />
 
                 <LinearLayout
+                    android:id="@+id/newQuoteDashboardBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/white_button_background"
+                    android:clickable="true"
                     android:gravity="center_vertical"
+                    android:onClick="newQuoteBtnClicked"
                     android:orientation="horizontal"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
@@ -234,28 +237,40 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp">
 
                     <ProgressBar
                         android:id="@+id/progressBarOne"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/linear_progress_bar" />
 
                     <ProgressBar
                         android:id="@+id/progressBarTwo"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/linear_progress_bar" />
 
                     <ProgressBar
                         android:id="@+id/progressBarThree"
                         style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:progress="1" />
+                        android:progressDrawable="@drawable/linear_progress_bar"
+                        android:layout_weight="1"
+                        android:progress="100"
+                        android:layout_margin="2dp"/>
 
                 </LinearLayout>
 

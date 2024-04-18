@@ -24,6 +24,7 @@
             android:id="@+id/backBtnPoints"
             android:layout_width="30dp"
             android:layout_height="35dp"
+            android:onClick="onBackPressedPoints"
             android:src="@drawable/rounded_back_arrow" />
 
         <TextView
@@ -42,15 +43,16 @@
         android:layout_height="263dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/gift_img"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        tools:layout_editor_absoluteX="33dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/unlockMusicBtn"
         android:layout_width="275dp"
         android:layout_height="59dp"
         android:layout_marginTop="116dp"
-        android:onClick="onClick"
+        android:onClick="unlockMusic"
         android:text="Unlock new Music"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
